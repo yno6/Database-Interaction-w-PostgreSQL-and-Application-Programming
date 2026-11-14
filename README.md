@@ -10,9 +10,9 @@ https://youtu.be/JPA69O1OSUs
 
 ```
 ├── app/
-│   └── main.py          # Python application with the four CRUD functions
+│   └── main.py                # Python application with the four CRUD functions
 ├── database/
-│   └── schema.sql       # Creates the students table and inserts the initial data
+│   └── student_schema.sql     # Creates the students table and inserts the initial data
 └── README.md
 ```
 

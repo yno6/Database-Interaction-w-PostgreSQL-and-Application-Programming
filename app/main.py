@@ -1,4 +1,4 @@
-# psycopg2 is the library that lets Python talk to PostgreSQL.
+#psycopg2 is the library that lets Python talk to PostgreSQL.
 import psycopg2
 
 #connection settings for PostgreSQL setup
@@ -65,14 +65,14 @@ def deleteStudent(student_id):
     cur.close()
     conn.close()
 
-#This block only runs when we start this file directly using python main.py
+#This block only runs when we run this program directly using python main.py
 #For demo purposes
 if __name__ == "__main__":
     #show the starting data (the 3 students from schema.sql)
     print("All students:");            
     getAllStudents()
 
-     # ADD a new student, then print again to see them appear
+     #ADD a new student, then print again to see them appear
     addStudent("Alice", "New", "alice.new@gmail.com", "2026-11-11")
     print("After adding Alice:");      
     getAllStudents()

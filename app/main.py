@@ -3,11 +3,11 @@ import psycopg2
 
 #connection settings for PostgreSQL setup
 DB_CONFIG = {
-    "dbname": "database_name",      #the name of the database you created in pgAdmin (for me it is A3_Q1)
+    "dbname": "database_name",      #the name of the database you created in pgAdmin (for me it's A3_Q1)
     "user": "postgres",             #the PostgreSQL username (postgres is the default)
     "password": "your_password",    #the password set when installing PostgreSQL
     "host": "localhost",            #"localhost" means the database is on this same computer
-    "port": "5432",                 #the door number PostgreSQL listens on (5432 is the default)
+    "port": "5432",                 #the port PostgreSQL listens on (5432 is the default)
 }
 
 def get_connection():
@@ -43,15 +43,15 @@ def addStudent(first_name, last_name, email, enrollment_date):
 #UPDATE - changes the email of the student with the given ID
 def updateStudentEmail(student_id, new_email):
     conn = get_connection()          
-    current = conn.cursor()          
+    cur = conn.cursor()          
     #SET changes the email. WHERE makes sure only the student with this ID is changed
     #Without WHERE, every student would get the same email
-    current.execute(
+    cur.execute(
         "UPDATE students SET email = %s WHERE student_id = %s;",
         (new_email, student_id),
     )
     conn.commit()                   
-    current.close()                 
+    cur.close()                 
     conn.close()                    
 
 #DELETE - removes the student with the given ID
@@ -65,7 +65,7 @@ def deleteStudent(student_id):
     cur.close()
     conn.close()
 
-#This block only runs when we run this program directly using python main.py
+#This block only runs when we run this program using python main.py
 #For demo purposes
 if __name__ == "__main__":
     #show the starting data (the 3 students from schema.sql)
